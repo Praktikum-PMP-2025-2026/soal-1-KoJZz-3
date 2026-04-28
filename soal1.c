@@ -69,19 +69,16 @@ void algo(PetugasArray* Array){
     }
 }
 
-void inputs(PetugasArray* Array, char* nama, int* id, char* SHIFT, int* skor, int size){
-    for(int i = 0; i < size; i++){
-        scanf("%s %d %s %d", nama, id, SHIFT, skor);
-        newPetugas(Array, nama, SHIFT, id, skor);
-    }
-}
-
 int main(){
     int size; int id; int skor;
     char nama[30]; char SHIFT[10];
     scanf("%d", &size);
     PetugasArray* ArrayP = initialize(size);
-    inputs(ArrayP, &nama, &id, &SHIFT, &skor, size);
+    for(int i = 0; i < size; i++){
+        scanf("%s %d %s %d", nama, &id, SHIFT, &skor);
+        newPetugas(ArrayP, nama, SHIFT, id, skor);
+
+    }
     algo(ArrayP);
     return 0;
 }
