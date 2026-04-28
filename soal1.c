@@ -54,7 +54,7 @@ void algo(PetugasArray* Array){
             }
         }
         if (temp.id == -999){
-            printf("-\n");
+            printf("%s -\n", SHIFT[i]);
         } else {
             printf("%s %s %d %d\n", SHIFT[i], temp.nama, temp.id, temp.skor);
         }
