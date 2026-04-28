@@ -1,3 +1,11 @@
+/** EL2008 Praktikum Pemecahan Masalah dengan Pemrograman 2024/2025
+ *   Modul               : 3 – Structures and Dynamic Arrays
+ *   Hari dan Tanggal    : Selasa, 28 April 2026
+ *   Nama (NIM)          : Nicholas L. M. Simarmata (13224060)
+ *   Nama File           : soal1.c
+ *   Deskripsi           : Program untuk meng-input shift tugas dan meng-outputkan petugas terbaik
+ * 
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -61,24 +69,19 @@ void algo(PetugasArray* Array){
     }
 }
 
+void inputs(PetugasArray* Array, char* nama, int* id, char* SHIFT, int* skor, int size){
+    for(int i = 0; i < size; i++){
+        scanf("%s %d %s %d", nama, id, SHIFT, skor);
+        newPetugas(Array, nama, SHIFT, id, skor);
+    }
+}
+
 int main(){
     int size; int id; int skor;
     char nama[30]; char SHIFT[10];
     scanf("%d", &size);
     PetugasArray* ArrayP = initialize(size);
-    // printf("initsuk");
-    for(int i = 0; i < size; i++){
-        // scanf("%s %d %s %d", &ArrayP->Arr[i].nama, &ArrayP->Arr[i].id, &ArrayP->Arr[i].SHIFT, &ArrayP->Arr[i].skor);
-        scanf("%s %d %s %d", nama, &id, SHIFT, &skor);
-        newPetugas(ArrayP, nama, SHIFT, id, skor);
-
-    }
-
-    // for(int i = 0; i < size; i++){
-    //     printf("%s %d %s %d\n", ArrayP->Arr[i].nama, ArrayP->Arr[i].id, ArrayP->Arr[i].SHIFT, ArrayP->Arr[i].skor);
-    // }
-
+    inputs(ArrayP, &nama, &id, &SHIFT, &skor, size);
     algo(ArrayP);
-
     return 0;
 }
